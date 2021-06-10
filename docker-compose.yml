@@ -1,0 +1,34 @@
+version: '3'
+
+services:  
+  nodejs-app:
+    image: node:15
+    build:
+        context: ./
+        dockerfile: Dockerfile
+    container_name: nodejs-app
+    volumes:
+      - ./nodejs:/home/node/nodejs
+      - /home/node/nodejs/node_modules
+    environment:
+        - PORT=4000
+    command: node index.js
+    networks:
+      - app-network
+
+  webserver:
+    image: nginx:mainline-alpine
+    container_name: nginx-blog
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx-conf/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./index.html:/var/www/html/index.html
+    depends_on:
+      - nodejs-app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -110,3 +110,7 @@ Cloudflare's flexible Let's Encrypt causes this problem.
 1. Do I need to install SSL certification before all setups?
 2. It is same to problem 1... nginx and nextjs container should be set restart:unless-stopped? Any other way?
 3. ```sudo chmod -R 777 certbot/``` can't stat
+
+
+### Cloudflare
+Full and Flexible Let's Encrypt seems differen  

@@ -12,5 +12,5 @@ app.get('/another', (req, res) => {
     console.log('/ root is active.')
 })
 
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 5000
 app.listen(port, () => console.log(`listening on port ${port}`))

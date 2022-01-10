@@ -12,5 +12,15 @@ app.get('/api', (req, res) => {
     console.log('/ root is active.')
 })
 
+app.get('/', (req, res) => {
+    res.send('<h1>hi / from nodejs</h1>')
+    console.log('/ root is active.')
+})
+
+app.get('/api/other', (req, res) => {
+    res.send('<h1>hi api/other</h1>')
+    console.log('/ root is active.')
+})
+
 const port = process.env.PORT || 4000
 app.listen(port, () => console.log(`listening on port ${port}`))

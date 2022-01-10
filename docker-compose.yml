@@ -16,6 +16,21 @@ services:
     networks:
       - app-network
 
+  another-nodejs:
+    image: node:15
+    build:
+        context: ./
+        dockerfile: Dockerfile-another
+    container_name: another-app
+    volumes:
+      - ./another:/home/node/nodejs
+      - /home/node/nodejs/node_modules
+    environment:
+        - PORT=4000
+    command: node index.js
+    networks:
+      - app-network
+
   webserver:
     image: nginx:mainline-alpine
     container_name: nginx-blog

@@ -8,7 +8,7 @@ app.use(cors({}))
 app.use(express.json())
 
 app.get('/another', (req, res) => {
-    res.send('<h1>hi there!!!! from another nodejs</h1>')
+    res.send('<h1>hi another!!!!</h1>')
     console.log('/ root is active.')
 })
 
